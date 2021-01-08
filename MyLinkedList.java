@@ -17,16 +17,18 @@ public class MyLinkedList{
   public String get (int index) {
     current = start;
     String ret = "";
-    if (index > size) {
+    if (index >= size || index < 0) {
       throw new IndexOutOfBoundsException("there is no Node at this index");
     }
-    for (int i = 0; i < size; i++) {
-
-      if (i == index) {
-        ret = current.getData();
+    else {
+      for (int i = 0; i < size; i++) {
+        current = current.getNext();
+        if (i == index) {
+          ret = current.getData();
+        }
       }
-      current = current.getNext();
     }
+
     return ret;
   }
 
@@ -47,6 +49,9 @@ public class MyLinkedList{
   }
 
   public void add(int index, String value) {
+    if (index >= size || index < 0) {
+      throw new IndexOutOfBoundsException("Node cannot be added at this index");
+    }
     current = start;
     Node toAdd = new Node(value);
 
