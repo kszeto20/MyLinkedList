@@ -18,7 +18,7 @@ public class MyLinkedList{
     current = start;
     String ret = "";
     if (index > size) {
-      throw new IllegalArgumentException("there is no Node at this index");
+      throw new IndexOutOfBoundsException("there is no Node at this index");
     }
     for (int i = 0; i < size; i++) {
 
