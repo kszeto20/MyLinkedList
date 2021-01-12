@@ -81,6 +81,31 @@ public class MyLinkedList{
     }
     return ret;
   }
+
+  private int getSize() {
+    return size;
+  }
+
+  private void clearList() {
+    start = null;
+    end = null;
+    size = 0;
+  }
+
+  private Node getStart() {
+    return start;
+  }
+
+  private Node getEnd() {
+    return end;
+  }
+
+  public void extend(MyLinkedList other) {
+    end.setNext(other.getStart());
+    end = other.getEnd();
+    size += other.getSize();
+    other.clearList();
+  }
   //remove is still under construction
   // throwing null pointer exception @ line130
 /*
