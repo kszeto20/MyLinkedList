@@ -106,7 +106,8 @@ public class MyLinkedList{
       index--;
     }
     if (current != null && index == 0) {
-      ret += current.getData() + "]";
+      ret += current.getData();
+      ret += "]";
     }
     return ret;
   }
@@ -148,7 +149,7 @@ public class MyLinkedList{
       start = null;
       end = null;
       size = 0;
-      ret += " 'size 1' case ran through";
+      //ret += " 'size 1' case ran through";
       return ret;
     }
 
@@ -157,7 +158,7 @@ public class MyLinkedList{
       start = start.getNext();
       start.setPrev(null);
       size--;
-      ret += " 'first' case ran through";
+      //ret += " 'first' case ran through";
       return ret;
     }
 
@@ -166,7 +167,7 @@ public class MyLinkedList{
       end = end.getPrev();
       end.setNext(null);
       size--;
-      ret += " end index case ran through";
+      //ret += " end index case ran through";
       return ret;
     }
 
@@ -178,7 +179,7 @@ public class MyLinkedList{
       toMod.getPrev().setNext(toMod.getNext());
       toMod.getNext().setPrev(toMod.getPrev());
       size--;
-      ret += "'other' case ran through";
+      //ret += "'other' case ran through";
     }
     return ret;
   }
