@@ -74,10 +74,15 @@ public class MyLinkedList{
 
   public String toString() {
     current = start;
+    int index = 0;
     String ret = "";
-    while (current != null) {
+    while (current != null && index != size - 1) {
       ret += current.getData() + ", ";
       current = current.getNext();
+      index++;
+    }
+    if (current != null && index == size - 1) {
+      ret += current.getData();
     }
     return ret;
   }
@@ -106,14 +111,11 @@ public class MyLinkedList{
     size += other.getSize();
     other.clearList();
   }
-  //remove is still under construction
-  // throwing null pointer exception @ line130
-/*
+
   public String remove (int index) {
     if (index < 0 || index >= size) {
-      throw new IndexOutOfBoundsException ("there is no node at this index");
+      throw new IndexOutOfBoundsException ("there is no node at index " + index);
     }
-
     String ret = "";
     Node toMod = start;
 
@@ -121,41 +123,39 @@ public class MyLinkedList{
       ret = start.getData();
       start = null;
       end = null;
-      size--;
+      size = 0;
+      ret += " 'size 1' case ran through";
       return ret;
     }
+
     else if (index == 0) {
       ret = start.getData();
       start = start.getNext();
       start.setPrev(null);
       size--;
+      ret += " 'first' case ran through";
       return ret;
     }
+
     else if (index == size - 1) {
       ret = end.getData();
       end = end.getPrev();
       end.setNext(null);
       size--;
+      ret += " end index case ran through";
       return ret;
     }
+
     else {
-      toMod = start;
-      for (int i = 0; i <= index; i++) {
+      for (int i = 1; i <= index; i++) {
         toMod = toMod.getNext();
       }
+      ret = toMod.getData();
       toMod.getPrev().setNext(toMod.getNext());
----------- debug statements (disregard) -----------
-      if (toMod.getNext() == null) {
-        throw new IllegalArgumentException ("next null");
-      }
-      if (toMod.getPrev() == null) {
-        throw new IllegalArgumentException ("prev null");
-      }
- ----------------------------------------------------
       toMod.getNext().setPrev(toMod.getPrev());
       size--;
+      ret += "'other' case ran through";
     }
     return ret;
   }
-  */
 }
