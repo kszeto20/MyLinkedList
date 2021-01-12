@@ -75,7 +75,11 @@ public class MyLinkedList{
   public String toString() {
     current = start;
     int index = 0;
-    String ret = "";
+    String ret = "[";
+    if (size == 0) {
+      ret += "]";
+      return ret;
+    }
     while (current != null && index != size - 1) {
       ret += current.getData() + ", ";
       current = current.getNext();
@@ -83,6 +87,26 @@ public class MyLinkedList{
     }
     if (current != null && index == size - 1) {
       ret += current.getData();
+      ret += "]";
+    }
+    return ret;
+  }
+
+  public String toStringReversed() {
+    current = end;
+    int index = size - 1;
+    String ret = "[";
+    if (size == 0) {
+      ret += "]";
+      return ret;
+    }
+    while (current != null && index != 0) {
+      ret += current.getData() + ", ";
+      current = current.getPrev();
+      index--;
+    }
+    if (current != null && index == 0) {
+      ret += current.getData() + "]";
     }
     return ret;
   }

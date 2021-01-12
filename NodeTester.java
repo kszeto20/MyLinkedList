@@ -40,6 +40,7 @@ public class NodeTester {
     listTester.add("i am stressed");
 
     System.out.println(listTester);
+    System.out.println(listTester.toStringReversed());
     /*
     System.out.println(listTester.remove(0));
     System.out.println(listTester.remove(0));
@@ -52,6 +53,10 @@ public class NodeTester {
     System.out.println(listTester.remove(1));
     System.out.println(listTester.remove(0));
     System.out.println(listTester.remove(0));
+
+
+    System.out.println(listTester);
+    System.out.println(listTester.toStringReversed());
     /*
     System.out.println(listTest1);
     listTest.extend(listTest1);
