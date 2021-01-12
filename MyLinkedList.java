@@ -65,6 +65,7 @@ public class MyLinkedList{
         if (i == index - 1) {
           toAdd.setNext(current.getNext());
           current.setNext(toAdd);
+          size++;
         }
         current = current.getNext();
       }
@@ -80,5 +81,56 @@ public class MyLinkedList{
     }
     return ret;
   }
+  //remove is still under construction
+  // throwing null pointer exception @ line130
+/*
+  public String remove (int index) {
+    if (index < 0 || index >= size) {
+      throw new IndexOutOfBoundsException ("there is no node at this index");
+    }
 
+    String ret = "";
+    Node toMod = start;
+
+    if (size == 1) {
+      ret = start.getData();
+      start = null;
+      end = null;
+      size--;
+      return ret;
+    }
+    else if (index == 0) {
+      ret = start.getData();
+      start = start.getNext();
+      start.setPrev(null);
+      size--;
+      return ret;
+    }
+    else if (index == size - 1) {
+      ret = end.getData();
+      end = end.getPrev();
+      end.setNext(null);
+      size--;
+      return ret;
+    }
+    else {
+      toMod = start;
+      for (int i = 0; i <= index; i++) {
+        toMod = toMod.getNext();
+      }
+      toMod.getPrev().setNext(toMod.getNext());
+---------- debug statements (disregard) -----------
+      if (toMod.getNext() == null) {
+        throw new IllegalArgumentException ("next null");
+      }
+      if (toMod.getPrev() == null) {
+        throw new IllegalArgumentException ("prev null");
+      }
+ ----------------------------------------------------
+      toMod.getNext().setPrev(toMod.getPrev());
+      size--;
+    }
+    return ret;
+  }
+  */
 }
